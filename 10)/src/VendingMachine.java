@@ -4,6 +4,8 @@ import generators.FileInputGenerator;
 import generators.RandomInputGenerator;
 import generators.interfaces.Generator;
 
+import java.io.IOException;
+
 import static enums.Category.*;
 
 public class VendingMachine {
@@ -86,10 +88,10 @@ public class VendingMachine {
             state.output();
         }
     }
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         Generator<Input> gen = new RandomInputGenerator();
-        if(args.length == 1)
-            gen = new FileInputGenerator(args[0]);
+        //if(args.length == 1)
+        gen = new FileInputGenerator("src/VendingMachineInput.txt");
         run(gen);
     }
 }
